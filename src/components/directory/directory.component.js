@@ -5,8 +5,8 @@ import './directory.styles.scss'
 
 
 class Directory extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             section: [
                 {
@@ -48,12 +48,12 @@ class Directory extends React.Component {
         return (
             <div className="directory-menu">
             {
-                this.state.section.map(({title, imageUrl, size, id}) => (
-                    <MenuItem key={id} title={title} imageUrl={imageUrl} size={size}/>
+                this.state.section.map(({ id, ...otherSectionProps}) => (
+                    <MenuItem key={id} {...otherSectionProps} />
                 ))
             }
             </div>
         )
-    }
+    } 
 }
 export default Directory
